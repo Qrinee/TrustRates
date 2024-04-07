@@ -18,7 +18,7 @@ const MainRating = ({na}) => {
             </TouchableOpacity>
             </View>
             <View>
-            <Text style={styles.rate}>3/5</Text>
+            <Text style={styles.rate}>5/5</Text>
             </View>
             </View>
         </View>

@@ -9,24 +9,24 @@ const UserDetailsBlock=()=>{
     return(
         <View style={styles.mainBlock}>
             <View style={styles.insideRows}>
-            <Image style={styles.iconImage}source={require('../assets/lupka1.png')}/>
+            <Image style={styles.iconImage}source={require('../assets/repair.svg')}/>
             <Text>Wykonano 7 napraw</Text>
             </View>
             <View style={styles.insideRows}>
-            <Image style={styles.iconImage}source={require('../assets/lupka1.png')}/>
+            <Image style={styles.iconImage}source={require('../assets/repair.svg')}/>
             <Text>Wydano 2500zł na naprawy</Text>
             </View>
             <View style={styles.insideRows}>
-            <Image style={styles.iconImage}source={require('../assets/lupka1.png')}/>
-            <Text>Wykonano 7 napraw</Text>
+            <Image style={styles.iconImage}source={require('../assets/repair.svg')}/>
+            <Text>Zdiagnozowano 14 usterek</Text>
             </View>
             <View style={styles.insideRows}>
-            <Image style={styles.iconImage}source={require('../assets/lupka1.png')}/>
-            <Text>Czas ostatniej naprawy</Text>
+            <Image style={styles.iconImage}source={require('../assets/repair.svg')}/>
+            <Text>Ostatnia usterka: cieknący olej</Text>
             </View>
             <View style={styles.insideRows}>
-            <Image style={styles.iconImage}source={require('../assets/lupka1.png')}/>
-            <Text>Czas ostatniej naprawy</Text>
+            <Image style={styles.iconImage}source={require('../assets/repair.svg')}/>
+            <Text>Settings</Text>
             </View>
         </View>
 

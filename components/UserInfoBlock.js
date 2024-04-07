@@ -1,4 +1,4 @@
-import { StyleSheet,Text,View } from "react-native";
+import { StyleSheet,Text,View, Image } from "react-native";
 import UserProfileInfo from "../views/UserProfileInfo";
 
 
@@ -8,10 +8,10 @@ const UserInfoBlock=props=>{
 
   return (
     <View style={styles.profileNameHeader}>
-      <View style={[styles.profileCircle,{
+      <Image source={require('../assets/mechanic.jpg')} style={[styles.profileCircle,{
                 backgroundColor:props.circleColor,
 
-        }]}></View>
+        }]}></Image>
       <View style={styles.profileContainer}>
         <View style={styles.profileText}>
           <Text style={{color:props.fontHeaderColor,

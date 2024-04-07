@@ -22,8 +22,12 @@ const MainMechanic = ({navigation}) => {
         <TouchableOpacity onPress={() => {navigation.navigate('Repair')}}>
           <MechanicCarCard mark={'Toyota'} status={'W trakcie naprawy...'} image={require('../assets/toyota.png')}></MechanicCarCard>
         </TouchableOpacity>
-        <MechanicCarCard mark={'Honda'} status={'W trakcie naprawy...'} image={require('../assets/civic.png')}></MechanicCarCard>
-        <MechanicCarCard mark={'Ford'}  status={'W trakcie naprawy...'} image={require('../assets/ford.png')}></MechanicCarCard>
+        <TouchableOpacity onPress={() => {navigation.navigate('Repair')}}>
+          <MechanicCarCard mark={'Honda'} status={'W trakcie naprawy...'} image={require('../assets/civic.png')}></MechanicCarCard>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => {navigation.navigate('Repair')}}>
+          <MechanicCarCard mark={'Ford'}  status={'W trakcie naprawy...'} image={require('../assets/ford.png')}></MechanicCarCard>
+        </TouchableOpacity>
       </View>
     );
 }

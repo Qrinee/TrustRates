@@ -23,12 +23,22 @@ const CarDescription = ({navigation}) => {
             </View>
             <TouchableOpacity onPress={() => navigation.navigate('Car Fault Details', {
                 faultTitle: 'Wymiana silnika',
-                faultDescriptionText: 'Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet'
+                faultDescriptionText: 'Awaria silnika to poważny problem, który może mieć różne przyczyny. Gdy silnik nie działa poprawnie, może to być spowodowane uszkodzeniem lub zużyciem kluczowych części, takich jak tłoki, wałki rozrządu, czy uszczelki. W rezultacie mogą pojawić się objawy, takie jak niestabilne działanie, wibracje, utrata mocy lub nieprawidłowe dźwięki. Diagnoza awarii wymaga dokładnej analizy silnika, sprawdzenia stanu poszczególnych podzespołów oraz ich ewentualnej wymiany. Konieczne może być także sprawdzenie układu paliwowego, chłodzenia oraz systemu zapłonowego.'
             })}>
                 <Repair value={"Wymiana silnika"} date={"03.04.2024"}/>
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Car Fault Details', {
+                faultTitle: 'Wymiana oleju',
+                faultDescriptionText: `Zadzwonie w okolicach 19stej żeby obgadać te usterkę`
+            })}>
             <Repair value={"Wymiana oleju"} date={"03.04.2024"}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Car Fault Details', {
+                faultTitle: 'Dolanie płynu hamulcowego',
+                faultDescriptionText: `Zadzwonie w okolicach 19stej żeby obgadać te usterkę`
+            })}>
             <Repair value={"Dolanie płynu hamulcowego"} date={"03.04.2024"}/>
+            </TouchableOpacity>
             <View>
                 <Text style={styles.heading}>Informacje</Text>
             </View>
@@ -44,7 +54,7 @@ const CarDescription = ({navigation}) => {
                 <Text style={styles.black}>Dodaj informację</Text>
             </View>
         </View>
-        <InfoBox title="Dodatkowe informacje" description="Panie mechaniku, pan mi nie rusza tego jebanego sprzęgła bo mnie chyba popierdoli coś"></InfoBox>
+        <InfoBox title="Dodatkowe informacje" description="Przykładowa dodatkowa informacja dla mechanika."></InfoBox>
         </ScrollView>
     );
 }

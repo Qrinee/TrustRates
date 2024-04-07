@@ -15,11 +15,12 @@ const CarFaulDetails =({route,navigation})=>{
 
         fontSize:23,
         fontWeight:900,
-        marginTop:50
+        marginTop:40,
+        marginBottom:20
 
 
       }}>{faultTitle}</Text>
-      <View style={styles.faultBgImage}></View>
+      <Image source={require('../assets/silnik.jpg')} style={styles.faultBgImage}></Image>
       <View style={styles.faultCostsCard}>
 
         <FaultDescriptionCard faultText={faultDescriptionText} faultPrice="300ZŁ"/>
@@ -34,9 +35,9 @@ const styles=StyleSheet.create({
         zIndex: 9999999,
         position: 'absolute',
         margin: 20,
-        left: 10,
-        top: 20,
         width: 30,
+        top: 20,
+        left: 10,
         height: 50
     },
   mainFlexContainer:{

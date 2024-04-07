@@ -1,14 +1,44 @@
 import React from 'react';
-import { StyleSheet, View, Image, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, View, Image, Text, TouchableOpacity, ScrollView, TextInput } from 'react-native';
 import Repair from '../components/Repair';
 import BoldText from './../components/BoldText';
 import InfoBox from '../components/InfoBox';
 import RepairCard from '../components/RepairCard';
 import Item from '../components/Item';
+import MainButton from '../components/MainButton';
+import { useGlobal } from '../context/GlobalContext';
+import { useState } from 'react';
+import Input from '../components/Input';
 
 const MechanicRepair = ({navigation}) => {
+    const {globalFaults, setGlobalFaults} = useGlobal()
+    const [show, setShow] = useState(false)
+    const [name, setName] = useState("")
+
+    const handleAddFault = () => {
+        setGlobalFaults([...globalFaults, { globalFaultTitle: name }])
+        console.log(globalFaults)
+        setShow(false)
+    }
+
     return (
         <ScrollView>
+            {
+                show ? (
+                    <>
+                    
+                    <View style={styles.modal}>
+                        <BoldText text={"Dodaj usterkę:"}></BoldText>
+                        <TextInput onChangeText={(value) => setName(value)} style={{marginBottom: 10, padding: 10, borderWidth: 1, borderColor: 'gray', borderRadius: 5, paddingLeft: 20, paddingRight: 20}} placeholder="Nazwa usterki..."></TextInput>
+                     <TouchableOpacity onPress={handleAddFault}>
+                            <MainButton color={"black"} text={"Dodaj usterkę"}></MainButton>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.overlay}></View>
+                    </>
+                ) : null
+            }
+
         <View>  
             <TouchableOpacity  style={styles.arrowLeft} onPress={() => {navigation.navigate('Mechanic')}}>
                 <View>
@@ -38,9 +68,29 @@ const MechanicRepair = ({navigation}) => {
                 </View>
             </View>
             <BoldText text={"Usterki:"}></BoldText>
-            <Repair value={"Wymiana żarowek"}></Repair>
-            <Repair value={"Wymiana oleju"}></Repair>
-            <Repair value={"Wymiana żarowek"}></Repair>
+            {
+                globalFaults.map((fault, index) => {
+                    return (
+                    <TouchableOpacity>
+                        <Repair key={index} value={fault.globalFaultTitle} />
+                    </TouchableOpacity>
+                    )
+                })
+            }
+            <TouchableOpacity>
+                <Repair value={"Wymiana żarowek"}></Repair>
+            </TouchableOpacity>
+            <TouchableOpacity>
+                <Repair value={"Wymiana oleju"}></Repair>
+            </TouchableOpacity>
+            <TouchableOpacity>
+                <Repair value={"Wymiana żarowek"}></Repair>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => setShow(!show)}>
+                <View style={{ marginLeft: 20, marginTop: 10}}>
+                    <MainButton color={"black"} text={"+ Dodaj usterkę"}></MainButton>
+                </View>
+            </TouchableOpacity>
             <BoldText text={"Informacje:"}></BoldText>
             <View style={{flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center'}}>
                 <Item text={'Silnik 1.6'}></Item>
@@ -63,6 +113,26 @@ const styles = StyleSheet.create({
         width: 20,
         height: 28,
         marginLeft: 20
+    },
+    overlay:{
+        flex: 1,
+        backgroundColor: 'black',
+        height: '100%',
+        width: '100%',
+        position: 'absolute',
+        opacity: '50%',
+        zIndex: 9999,
+    },
+    modal: {
+        width: '100%',
+        flex: 1,
+        position: 'absolute',
+        zIndex: 99999,
+        justifyContent: 'center',
+        marginTop: '50%',
+        alignItems: 'center',
+        backgroundColor: 'white',
+        padding: 50,
     },
     arrowLeft: {
         position: 'absolute',

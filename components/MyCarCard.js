@@ -3,7 +3,6 @@ import { StyleSheet, View, Image, Text } from 'react-native';
 
 const MyCarCard = () => {
     return (
-    
         <View>
             <Image style={styles.img} source={require('../assets/yaris.jpg')} resizeMode="cover"></Image>
             <View style={styles.content}>
